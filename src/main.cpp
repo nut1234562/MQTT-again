@@ -14,7 +14,7 @@ const char* MQTT_USER = "noderedfastfast";
 const char* MQTT_PASS = "Abcdefghi47";
 const char* MQTT_TOPIC = "esp32/demo";
 constexpr float US_TO_CM = 0.0343f / 2.0f;
-const uint32_t PUBLISH_PERIOD_MS = 2000;
+const uint32_t PUBLISH_PERIOD_MS = 100;
 
 WiFiClientSecure net;
 PubSubClient mqttClient(net);
@@ -97,7 +97,7 @@ void loop() {
                  dcm, din, (unsigned long)now);
         mqttClient.publish(MQTT_TOPIC, payload, false);
     }
-    delay(100);
+    delay(200);
 
   /*if (millis()-lastPublish>5000) {
     lastPublish=millis();
